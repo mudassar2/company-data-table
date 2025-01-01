@@ -12,6 +12,7 @@
     <table id="dataTable">
         <thead>
             <tr>
+                <th>Company Name</th>
                 <th>CEO</th>
                 <th>LinkedIn</th>
                 <th>Address</th>
@@ -44,6 +45,7 @@ function populateTable(data) {
 
     data.forEach(row => {
         const newRow = tableBody.insertRow();
+        newRow.insertCell(0).innerText = row['Company Name'];
         newRow.insertCell(0).innerText = row['CEO'];
         newRow.insertCell(1).innerHTML = `<a href="${row['Linkedin']}" target="_blank">${row['Linkedin']}</a>`;
         newRow.insertCell(2).innerText = row['Address'];
