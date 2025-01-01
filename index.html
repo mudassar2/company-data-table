@@ -24,40 +24,35 @@
         <tbody>
         </tbody>
     </table>
-    <script>
-        document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+<script>
+ window.onload = function() {
+    const url = 'companydata.xlsx'; // Replace with the path to your Excel file
 
-        function handleFileSelect(event) {
-            const file = event.target.files[0];
-            if (!file) {
-                return;
-            }
-            
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const data = e.target.result;
-                const workbook = XLSX.read(data, { type: 'binary' });
-                const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-                const jsonData = XLSX.utils.sheet_to_json(firstSheet);
-                populateTable(jsonData);
-            };
-            reader.readAsBinaryString(file);
-        }
+    fetch(url)
+        .then(response => response.arrayBuffer())
+        .then(data => {
+            const workbook = XLSX.read(data, { type: 'array' });
+            const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+            const jsonData = XLSX.utils.sheet_to_json(firstSheet);
+            populateTable(jsonData);
+        })
+        .catch(error => console.error('Error loading Excel file:', error));
+};
 
-        function populateTable(data) {
-            const tableBody = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
-            tableBody.innerHTML = ''; // Clear existing data
+function populateTable(data) {
+    const tableBody = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
+    tableBody.innerHTML = ''; // Clear existing data
 
-            data.forEach(row => {
-                const newRow = tableBody.insertRow();
-                newRow.insertCell(0).innerText = row['CEO'];
-                newRow.insertCell(1).innerHTML = `<a href="${row['Linkedin']}" target="_blank">${row['Linkedin']}</a>`;
-                newRow.insertCell(2).innerText = row['Address'];
-                newRow.insertCell(3).innerText = row['Email'];
-                newRow.insertCell(4).innerText = row['Phone'];
-                newRow.insertCell(5).innerHTML = `<a href="${row['Location']}" target="_blank">${row['Location']}</a>`;
-            });
-        }
+    data.forEach(row => {
+        const newRow = tableBody.insertRow();
+        newRow.insertCell(0).innerText = row['CEO'];
+        newRow.insertCell(1).innerHTML = `<a href="${row['Linkedin']}" target="_blank">${row['Linkedin']}</a>`;
+        newRow.insertCell(2).innerText = row['Address'];
+        newRow.insertCell(3).innerText = row['Email'];
+        newRow.insertCell(4).innerText = row['Phone'];
+        newRow.insertCell(5).innerHTML = `<a href="${row['Location']}" target="_blank">${row['Location']}</a>`;
+    });
+}
     </script>
 </body>
 </html>
