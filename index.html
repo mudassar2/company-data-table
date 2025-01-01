@@ -46,12 +46,12 @@ function populateTable(data) {
     data.forEach(row => {
         const newRow = tableBody.insertRow();
         newRow.insertCell(0).innerText = row['Company Name'];
-        newRow.insertCell(0).innerText = row['CEO'];
-        newRow.insertCell(1).innerHTML = `<a href="${row['Linkedin']}" target="_blank">${row['Linkedin']}</a>`;
-        newRow.insertCell(2).innerText = row['Address'];
-        newRow.insertCell(3).innerText = row['Email'];
-        newRow.insertCell(4).innerText = row['Phone'];
-        newRow.insertCell(5).innerHTML = `<a href="${row['Location']}" target="_blank">${row['Location']}</a>`;
+        newRow.insertCell(1).innerText = row['CEO'];
+        newRow.insertCell(2).innerHTML = `<a href="${row['Linkedin']}" target="_blank">${row['Linkedin']}</a>`;
+        newRow.insertCell(3).innerText = row['Address'];
+        newRow.insertCell(4).innerText = row['Email'];
+        newRow.insertCell(5).innerText = row['Phone'];
+        newRow.insertCell(6).innerHTML = `<a href="${row['Location']}" target="_blank">${row['Location']}</a>`;
     });
 }
     </script>
