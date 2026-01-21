@@ -1,59 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company Data Table</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Carbon Credits Platform | Login</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Company Data Table</h1>
-    <table id="dataTable">
-        <thead>
-            <tr>
-                <th>Company Name</th>
-                <th>CEO</th>
-                <th>LinkedIn</th>
-                <th>Address</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Location</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-<script>
- window.onload = function() {
-    const url = 'companydata.xlsx'; // Replace with the path to your Excel file
 
-    fetch(url)
-        .then(response => response.arrayBuffer())
-        .then(data => {
-            const workbook = XLSX.read(data, { type: 'array' });
-            const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-            const jsonData = XLSX.utils.sheet_to_json(firstSheet);
-            populateTable(jsonData);
-        })
-        .catch(error => console.error('Error loading Excel file:', error));
-};
+  <div class="container">
 
-function populateTable(data) {
-    const tableBody = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
-    tableBody.innerHTML = ''; // Clear existing data
+    <!-- Logo -->
+    <div class="logo">
+      <img src="logo.png" alt="Aviatra Logo">
+    </div>
 
-    data.forEach(row => {
-        const newRow = tableBody.insertRow();
-        newRow.insertCell(0).innerText = row['Company Name'];
-        newRow.insertCell(1).innerText = row['CEO'];
-        newRow.insertCell(2).innerHTML = `<a href="${row['Linkedin']}" target="_blank">${row['Linkedin']}</a>`;
-        newRow.insertCell(3).innerText = row['Address'];
-        newRow.insertCell(4).innerText = row['Email'];
-        newRow.insertCell(5).innerText = row['Phone'];
-        newRow.insertCell(6).innerHTML = `<a href="${row['Location']}" target="_blank">${row['Location']}</a>`;
-    });
-}
-    </script>
+    <h2>Login</h2>
+
+    <form>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+      </div>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <p class="link-text">
+      Don’t have an account?
+      <a href="signup.html">Sign Up</a>
+    </p>
+  </div>
+
 </body>
 </html>
