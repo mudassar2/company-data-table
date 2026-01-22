@@ -2,16 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AVIATRA</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="manifest" href="manifest.json">
-</head>
+  <title>AVIATRA | Login</title>
   <link rel="icon" type="image/png" href="logo1.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+
 <body>
 
+  <!-- 🌍 World Map -->
+  <div class="world-map-bg"></div>
+
+  <!-- 🇸🇦 KSA Glow -->
+  <div class="ksa-glow"></div>
+
+  <!-- ♻️ Floating SVG Carbon Icons -->
+  <div class="floating-icons">
+    <img src="icons/leaf.svg" class="icon i1">
+    <img src="icons/recycle.svg" class="icon i2">
+    <img src="icons/co2.svg" class="icon i3">
+    <img src="icons/leaf.svg" class="icon i4">
+    <img src="icons/recycle.svg" class="icon i5">
+  </div>
+
+  <!-- 🔐 Login -->
   <div class="container">
 
-    <!-- Logo -->
     <div class="logo">
       <img src="logo.png" alt="Aviatra Logo">
     </div>
@@ -19,30 +34,24 @@
     <h2>Login</h2>
 
     <form>
-
       <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" placeholder="Enter your email" required>
+        <label>Email Address</label>
+        <input type="email" placeholder="Enter your email" required>
       </div>
 
       <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter your password" required>
+        <label>Password</label>
+        <input type="password" placeholder="Enter your password" required>
       </div>
 
       <button type="submit">Login</button>
     </form>
 
     <p class="link-text">
-      Don’t have an account?
-      <a href="signup.html">Sign Up</a>
+      Don’t have an account? <a href="signup.html">Sign Up</a>
     </p>
+
   </div>
 
 </body>
 </html>
-
-
-
-
-
