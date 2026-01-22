@@ -1,3 +1,148 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+/* ===== 🌍 WORLD MAP ===== */
+.world-map-bg {
+  position: fixed;
+  inset: 0;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg") center/120% no-repeat;
+  opacity: 0.1;
+  animation: mapMove 40s ease-in-out infinite;
+  z-index: -3;
+}
+
+@keyframes mapMove {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+/* ===== 🇸🇦 KSA GLOW ===== */
+.ksa-glow {
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  top: 48%;
+  left: 60%;
+  background: radial-gradient(circle, rgba(0,255,180,0.8), transparent 70%);
+  border-radius: 50%;
+  animation: pulse 3s ease-in-out infinite;
+  z-index: -2;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.3); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 0.6; }
+}
+
+/* ===== ♻️ FLOATING SVG ICONS ===== */
+.floating-icons .icon {
+  position: fixed;
+  width: 36px;
+  opacity: 0.7;
+  animation: floatUp 28s linear infinite;
+}
+
+.i1 { left: 15%; animation-delay: 0s; }
+.i2 { left: 30%; animation-delay: 6s; }
+.i3 { left: 50%; animation-delay: 12s; }
+.i4 { left: 70%; animation-delay: 18s; }
+.i5 { left: 85%; animation-delay: 24s; }
+
+@keyframes floatUp {
+  0% {
+    bottom: -60px;
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 0.7; }
+  100% {
+    bottom: 120%;
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ===== 🔐 LOGIN CARD ===== */
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 360px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+
+.logo img {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #1b5e20;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-size: 14px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #1b5e20;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0d3f13;
+}
+
+.link-text {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.link-text a {
+  color: #1b5e20;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+
 * {
   box-sizing: border-box;
   font-family: Arial, sans-serif;
