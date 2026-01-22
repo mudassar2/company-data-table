@@ -46,3 +46,17 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 });
+function toggleTheme() {
+  document.body.classList.toggle("dark");
+  document.body.classList.toggle("light");
+}
+
+/* 🌱 Tree Growth Animation */
+lottie.loadAnimation({
+  container: document.getElementById("tree-animation"),
+  renderer: "svg",
+  loop: false,
+  autoplay: true,
+  path: "assets/tree.json"
+});
+
